@@ -12,7 +12,10 @@ const controller = {
    
           res.render('index')//render nos permite ver la pagina
       },
-
+  admin: (req, res )=> {
+        
+        res.send(`Hola Admin: ${req.query.user}\n`)
+    },
  };
 
 module.exports = controller ;
