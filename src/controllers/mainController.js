@@ -1,21 +1,28 @@
-/* const fs = require('fs');
-const path = require('path');
+const { validationResult } = require("express-validator")
 
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');// RESUMEN DE LA RUTA
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));//lee json y lo pasa a javascrip base de datos parceada
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
- */
 const controller = {
 
   index: (req, res )=> {
-   
-          res.render('index')//render nos permite ver la pagina
+          res.render('index')
       },
   admin: (req, res )=> {
         
         res.send(`Hola Admin: ${req.query.user}\n`)
     },
- };
+  userData: (req, res )=> {
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            res.render("index", {
+                userData: req.body
+            })
+            }else{
+               res.render("index", {
+                 errors: errors.mapped()
+            })
+              }
+    
+    },
 
+ };
+   
 module.exports = controller ;

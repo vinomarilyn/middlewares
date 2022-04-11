@@ -5,4 +5,33 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.form{
+  background-color: rgb(191, 191, 191);
+  border: solid green;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 90%;
+}
+body .text-danger{
+   color: red;
+}
+.rojo{
+  background-color: red;
+}
+.azul{
+  background-color: blue;
+}
+.amarillo{
+  background-color: yellow;
+}
+.verde{
+  background-color: green;
 }

@@ -5,9 +5,73 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home Page</title>
 	<link rel="stylesheet" href="/css/app.css">
-</head>
-<body>
+</head> 
+
+<body >
+
+	<% if (locals.userData) { %>
+	<body class= "<%= userData.color %>">
+     <section >
+		 <p>Hola <%= userData.name %>, elegiste el color <%= userData.color %>,
+			 tu email es: <%= userData.email %>
+		<% userData.age !== "" && `y tu edad es ${userData.age}` %>
+		</p> 
+	 </section>
+		<% } %>
 	<h1>Home Page</h1>
 	<img src="/images/node.jpg" width="60%">
+	<div class="">
+		<div class="">
+			<h2 >Formulario</h2>
+		</div>  
+		   <form action="/" method="POST">
+			   <div class="form">
+			<div >
+				<label for="name" class="">Ingrese su nombre:</label>
+				<input type="text" id="name" name="name" placeholder="Debes ingresar tu nombre" class="form-input">
+			    <% if (locals.errors && errors.name) { %>
+				   	<span class="text-danger"><%= errors.name.msg %> </span>
+				<% } %>
+			
+			</div>
+			<div >
+				<label for="email" class="">Ingrese su mail:</label>
+				<input type="email" id="email" name="email" placeholder="E-mail" class="form-input">
+				<% if (locals.errors && errors.name) { %>
+					<span class="text-danger"><%= errors.email.msg %> </span>
+			 <% } %>
+			</div>
+
+			<div >
+				<label for="age" class="form-label-register">Ingrese su edad:</label>
+                <input class="input-register" type="number" name="age" id="age" placeholder="Edad" >
+			    <% if (locals.errors && errors.age) { %>
+					<span class="text-danger"><%= errors.age.msg %></span>
+			 <% } %>
+			</div>
+			
+			<div>
+				<label for="category" class="form-label-register">Listado de colores:</label>
+				<select name="color" id="color" class="form-input">
+				  <option hidden selected value="">Elegí un color</option>
+				  <option value="rojo" >rojo</option>
+				  <option value="azul">azul</option>
+				  <option value="verde">Verde</option>
+				  <option value="amarillo">amarillo</option>
+				</select>
+				<% if (locals.errors && errors.color) { %>
+					<span class="text-danger"><%= errors.color.msg %></span>
+			 <% } %>
+			  </div>
+			
+			<div class="">
+				<button type="submit" class="">Enviar</button>
+			</div>
+		</div>
+		</form>	
+		</div>
+
+
+		
 </body>
 </html>
