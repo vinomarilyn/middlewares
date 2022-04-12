@@ -14,7 +14,7 @@
      <section >
 		 <p>Hola <%= userData.name %>, elegiste el color <%= userData.color %>,
 			 tu email es: <%= userData.email %>
-		<% userData.age !== "" && `y tu edad es ${userData.age}` %>
+		<%= userData.age !== "" && `y tu edad es ${ userData.age }` %>
 		</p> 
 	 </section>
 		<% } %>

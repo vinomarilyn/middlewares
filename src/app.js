@@ -5,6 +5,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const userLogs = require('./middlewares/userLogs')//aplicacion del M
+const session = require('express-session')
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -16,6 +17,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(userLogs)
+app.use(session({
+  secret:'123',
+  resave: true,
+  saveUninitialized: true
+}))
+
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
