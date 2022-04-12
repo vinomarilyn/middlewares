@@ -35,3 +35,7 @@ body .text-danger{
 .verde{
   background-color: green;
 }
+.cookies{
+  display: flex;
+  flex-direction: row;
+}

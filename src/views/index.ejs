@@ -16,6 +16,7 @@
 			 tu email es: <%= userData.email %>
 		<%= userData.age !== "" && `y tu edad es ${ userData.age }` %>
 		</p> 
+		<a href="/page">página 2</a>
 	 </section>
 		<% } %>
 	<h1>Home Page</h1>
@@ -63,7 +64,17 @@
 					<span class="text-danger"><%= errors.color.msg %></span>
 			 <% } %>
 			  </div>
-			
+			<div class="cookies">
+			<div class="">
+				<input type="checkbox" name="keepsession" id="checksession">
+				<label for="checksession">Mantener sesión abierta</label>
+			</div>
+			<div class="">
+				
+				<button><a href="/logout">Olvidar el color </a></button>
+			   
+			</div>
+			</div>  
 			<div class="">
 				<button type="submit" class="">Enviar</button>
 			</div>

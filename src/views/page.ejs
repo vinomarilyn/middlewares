@@ -9,10 +9,10 @@
 
 <body >
 	
-<% if ( typeof session.user !== "undefined" ) { %>
-	<body class= "<%= session.color %>">
+<% if ( typeof session.userData !== "undefined" ) { %>
+	<body class= "<%= session.userData.color %>">
      <section >
-		 <p> <%= session.user %>,  gracias por visitarnos.
+		 <p> <%= session.userData.name %>,  gracias por visitarnos.
 		</p> 
 	 </section>
 		<% } %>

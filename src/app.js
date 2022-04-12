@@ -6,7 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const userLogs = require('./middlewares/userLogs')//aplicacion del M
 const session = require('express-session')
-
+const cookieSession = require('./middlewares/cookieSession')
 // ************ express() - (don't touch) ************
 const app = express();
 
@@ -19,10 +19,10 @@ app.use(cookieParser());
 app.use(userLogs)
 app.use(session({
   secret:'123',
-  resave: true,
+  resave: false,
   saveUninitialized: true
 }))
-
+app.use(cookieSession)
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
@@ -45,6 +45,7 @@ app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.path = req.path;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
 
   // render the error page
   res.status(err.status || 500);
